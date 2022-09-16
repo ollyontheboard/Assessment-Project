@@ -13,11 +13,8 @@ class RestExhibitsLoader : ViewModel() {
     var exhibitList: List<Exhibit> by mutableStateOf(listOf())
 
     init {
-
         viewModelScope.launch {
-            getExhibits()
-
-        }
+            getExhibits() }
 
     }
 
