@@ -11,18 +11,27 @@ import kotlinx.coroutines.launch
 
 class RestExhibitsLoader : ViewModel() {
     var exhibitList: List<Exhibit> by mutableStateOf(listOf())
+    var errorMessage: String by mutableStateOf("")
+
+
 
     init {
         viewModelScope.launch {
-            getExhibits() }
+            getExhibits()
+
+
+        }
 
     }
 
-    private suspend fun getExhibits() {
+
+
+    suspend fun getExhibits() {
         try {
             exhibitList = ExhibitApi.exhibitsLoader.getExhibitList()
         }
         catch (e: Exception){
+            errorMessage = e.message.toString()
 
         }
 

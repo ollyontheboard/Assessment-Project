@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModelProvider
+import com.example.exhibitapplication.application.ErrorMessage
 import com.example.exhibitapplication.application.ExhibitImages
 import com.example.exhibitapplication.model.Exhibit
 import com.example.exhibitapplication.restexhibitsloader.RestExhibitsLoader
@@ -32,7 +33,13 @@ class MainActivity : ComponentActivity() {
                     topBar ={ TopAppBar(
                         title = { Text(text = "Exhibition Viewer")})}
                 ) {
-                    ExhibitList(exhibitList = viewModel.exhibitList)
+                    if(viewModel.errorMessage.isEmpty()){
+                        ExhibitList(exhibitList = viewModel.exhibitList)
+                    }
+                    else{
+                        ErrorMessage()
+                    }
+
 
 
                 }
