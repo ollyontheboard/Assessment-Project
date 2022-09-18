@@ -36,8 +36,10 @@ class MainActivity : ComponentActivity() {
                     if(viewModel.errorMessage.isEmpty()){
                         ExhibitList(exhibitList = viewModel.exhibitList)
                     }
-                    else{
+                   else
+                    {
                         ErrorMessage()
+
                     }
 
 
